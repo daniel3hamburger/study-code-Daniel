@@ -10,5 +10,6 @@ printf(" 1 adress: %p", &Var2);
 printf(" 2 adress: %p \n", &Var5);
 printf("Adress dif : %d",(Var5-Var2));
 
+//Differenz von der ersten Postion des Pointers bis zum anderen sind 3 Postionen 
     return 0;
 }
