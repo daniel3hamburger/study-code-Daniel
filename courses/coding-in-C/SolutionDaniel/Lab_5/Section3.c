@@ -1,3 +1,6 @@
+/*
+1D particle system 
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -14,7 +17,7 @@ int main() {
     }
     printf("\n");
 
-    for (int t = 1; t < 20; t++) {
+    for (int t = 1; t < 100; t++) {
 
         // next_array auf 0 setzen
         for (int i = 0; i < 10; i++) {
@@ -40,8 +43,7 @@ int main() {
 
                 // Kollision prüfen
                 if (*p_new == 1) {
-                    printf("Kollision bei Position %d in Time %d\n", new_pos, t);
-                    return 0;
+                    printf("Kollision bei Position %d in Time %d\n", new_pos, t)
                 }
 
                 // Wert setzen
