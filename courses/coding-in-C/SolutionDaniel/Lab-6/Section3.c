@@ -38,7 +38,6 @@ void binary_detection_signal(struct Sensor* s) {
 
     for (int i = 0; i < 3000; i++) {
 
-        // Detection-Flag setzen
         s->object_detection[i] = (s->data[i].probability >= threshold) ? 1 : 0;
 
         if (s->object_detection[i] == 1 && detection == 0) {
