@@ -71,12 +71,14 @@ int main()
 
     std::cout << "You are " << age << " years old." << std::endl;
 
-    if (validation::isSenior(static_cast<std::uint8_t>(age)))
+    const std::uint8_t validated_age = static_cast<std::uint8_t>(age);
+
+    if (validation::isSenior(validated_age))
     {
 
         std::cout << "That means that you are a senior citizen." << std::endl;
     }
-    else if (validation::isAdult(static_cast<std::uint8_t>(age)))
+    else if (validation::isAdult(validated_age))
     {
         std::cout << "That means that you are an adult." << std::endl;
     }
