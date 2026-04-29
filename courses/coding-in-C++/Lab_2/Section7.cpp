@@ -57,12 +57,12 @@ class Query{
 
     bool isValid(){
         if(text.empty()){
-            std::cout<<" String is empty";
+            std::cout<<"String is empty\n";
             return false;
         }
         if (max_results<= 0)
         {
-            std::cout<<"Max Results is negativ!";
+            std::cout<<"Max Results is negativ!\n";
             return false;
         }
         

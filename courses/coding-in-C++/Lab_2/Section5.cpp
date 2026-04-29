@@ -121,7 +121,7 @@ public:
             price = price - price * percent / 100;
         }
         else{
-            std::cout<<"Not a right discount\n";
+            std::cout<<"Not a valid discount\n";
         }
          
     }
