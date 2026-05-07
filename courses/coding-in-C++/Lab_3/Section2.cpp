@@ -25,17 +25,33 @@ class Student : public User{
     int grade;
 
     public:
-    
+    Student(std::string name, int id, int grade):User(name,id), grade(grade){}
     void printRole(){
-        User::printInfo();
-        std::cout<<"Grade"<<grade<<"\n";
+        std::cout<<"Name: "<<name <<"\n";
+        std::cout<<"ID: "<< id << "\n"; 
+        std::cout<<"Grade: "<<grade<<"\n";
     }
 
 };
 
+class Instructor: public User{
+    private: 
+    int salary;
+
+    public:
+    Instructor(std::string name,int id, int salary): User(name,id),salary(salary){}
+
+    void printRole(){
+        std::cout<<"Name: "<<name <<"\n";
+        std::cout<<"ID: "<< id << "\n"; 
+        std::cout<< "Salary: "<< salary<<std::endl;
+    }
+};
+
 int main(){
-    User user1("Daniel", 12);
-    user1.printInfo();
-    Student Student1("")
+    Student user1("Daniel", 12, 2);
+    Instructor student1("Michi", 11, 5);
+    user1.printRole();
+    student1.printRole();
     return 0;
 }
