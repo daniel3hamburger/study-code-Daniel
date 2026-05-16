@@ -1,6 +1,6 @@
 # Lab 6: Exception Handling & Smart Pointer
 
-This lab focuses on **Exception Handling & SMart Pointer in C++**.
+This lab focuses on **Exception Handling & Smart Pointer in C++**.
 
 You will practice the following concepts:
 
@@ -21,7 +21,47 @@ All the following sections of this lab are based on the following levels of difi
 
 ---
 
-## 🟡 Section I: Exception Handling
+## 🟢 Section I: Exception Handling with `ConfigLoader`
+
+In this section you will practice the basics of exception handling in C++.
+
+You will practice the following concepts:
+
+* `try`, `throw`, and `catch`
+* standard exceptions
+* custom exception classes
+* exception propagation
+
+---
+
+### Task Description
+
+Implement a class `ConfigLoader`. This class should have a method `load(filename)`. Your task is to handle different error cases inside the method (the actual logic of the method is irrelevant for this exercise).
+
+* Empty filenames are invalid
+* Only file extensions of type `.cfg` are allowed
+* An error should be generated if the file cannot be opened
+  Simulate this behavior with:
+
+```cpp
+filename == "missing.cfg"
+```
+
+* An error should be generated if the system-specific configuration is invalid
+  Simulate this behavior with:
+
+```cpp
+filename == "invalid.cfg"
+```
+
+### Requirements
+
+* Use appropriate exceptions (standard exceptions or your own exception classes) to handle these cases.
+* Test all error cases in your `main` function.
+
+---
+
+## 🟡 Section II: Smart greenhouse
 
 In this section you will practice exception handling in C++.
 
@@ -134,7 +174,7 @@ Catch this exception in `main()`.
 6. Why should exceptions not be used for normal control flow?
 7. What happens if an exception is never caught?
 
-## Section II: Smart Pointers
+## Section III: Smart Pointers
 
 In this section you will practice memory management using smart pointers in C++.
 
