@@ -1,5 +1,5 @@
 /**
- * @file sensor_demo.cpp
+ * @file smart_greenhouse_partII.cpp
  * @brief Demonstrates exception handling with a Sensor class.
  *
  * This file defines a simple Sensor class with validation logic for
