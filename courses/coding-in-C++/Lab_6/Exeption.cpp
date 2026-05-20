@@ -3,7 +3,8 @@
 
 class ConfigLoader{
     public:
-    void load( std::string filename){
+    void load(std::string filename){
+
     if(filename.empty())
         throw std::invalid_argument("Leeres Dokument");
     
@@ -14,7 +15,7 @@ class ConfigLoader{
     {
        throw std::runtime_error("Datei hat falsche config");
     }
-    if(filename.find(".cfg")==true){
+    if(filename.find(".cfg")==std::string::npos){
         throw std::invalid_argument("Datei hat kein .cfg");
     }
     
@@ -23,7 +24,7 @@ class ConfigLoader{
 
 int main(){
     ConfigLoader config;
-    config.load("filename.cfg");
+    std::cout<<"Start\n";
     try
     {
         config.load("invalid");
