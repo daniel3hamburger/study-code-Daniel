@@ -12,7 +12,8 @@
                 "_UNICODE"
             ],
             "compilerPath": "C:/msys64/ucrt64/bin/gcc.exe",
-            "intelliSenseMode": "windows-gcc-x64"
+            "intelliSenseMode": "windows-gcc-x64",
+            "cppStandard": "c++26"
         },
         {
             "name": "Windows-C++",

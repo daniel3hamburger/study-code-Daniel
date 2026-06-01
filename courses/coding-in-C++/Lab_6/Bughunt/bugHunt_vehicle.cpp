@@ -11,7 +11,7 @@ Vehicle::Vehicle(const std::string &vehicle_model)
 
 void Vehicle::accelerate(double amount_kmh)
 {
-    if (amount_kmh <= 0.0)
+    if (amount_kmh < 0.0) // it never starts in the start 
     {
         return;
     }
@@ -28,7 +28,7 @@ void Vehicle::accelerate(double amount_kmh)
 
 void Vehicle::brake(double amount_kmh)
 {
-    if (amount_kmh <= 0.0)
+    if (amount_kmh <= 0.0)  
     {
         return;
     }

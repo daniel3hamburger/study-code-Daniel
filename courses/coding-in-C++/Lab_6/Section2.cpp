@@ -1,5 +1,14 @@
 #include <iostream>
 #include <stdexcept>
+class SensorFailureError: public std::exception{
+    private:
+    std::string message;
+    public:
+    SensorFailureError(const std::string& msg):message(msg){}
+    virtual const char* what() const noexcept override{
+        return message.c_str();
+    }
+};
 
 class Sensor{
     private:
@@ -12,10 +21,10 @@ class Sensor{
     void add_sensor(std::string name, double current_value, double Min_Value, double Max_Value){
 
         if (name.empty()) {
-            throw std::invalid_argument("Parameter Fehler: Name darf nicht leer sein!");
+            throw std::invalid_argument("Parameter Failure, name Empty");
         }
         if (Min_Value == 0.0 && Max_Value == 0.0) {
-            throw std::invalid_argument("Parameter Fehler: Min und Max wurden nicht korrekt ausgefüllt!");
+            throw std::invalid_argument("Parameter Failure, Min Max");
         }
 
         this->current_value = current_value;
@@ -44,25 +53,33 @@ class Sensor{
         std::cout<<"Max Value "<<Max_Value<<std::endl;
         }
 
+    void simulate_failure(){
+        throw SensorFailureError("Attention, sensor Failure");
+    }
 
 };
 
 int main(){
     Sensor s1;
+    Sensor s2;
     try
     {
         s1.add_sensor("Temp",80,0,100);
-        s1.update_value(120);
+        s1.update_value(20);
         s1.print_info();
+        //s1.simulate_failure();
+        s2.add_sensor("Test",90,0,100);
+        s2.update_value(60);
+        s2.print_info();
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::invalid_argument& e){
         std::cerr << e.what() << '\n';
     }
-    
-   
-
-
-
+    catch(const std::out_of_range& e){
+        std::cerr <<e.what()<<std::endl;
+    }
+    catch(const SensorFailureError& e){
+        std::cerr <<e.what()<<std::endl;
+    }
     return 0;
 }

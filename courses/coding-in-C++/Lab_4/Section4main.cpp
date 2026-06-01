@@ -15,7 +15,7 @@ int main() {
     w1.printReport();
     t1.printReport();
     v1.printReport();
-    std::cout << "Final Result: "<< ((w1.lastPassed() && t1.lastPassed() && v1.lastPassed()) ? "ACCEPTED" : "REJECTED")<< "\n\n";
+    std::cout << "Final Result: "<< ((w1.lastPassed() && t1.lastPassed() && v1.lastPassed()) ? "ACCEPTED" : "REJECTED")<< "\n";
 
     WeightInspection w2;
     TemperatureInspection t2;

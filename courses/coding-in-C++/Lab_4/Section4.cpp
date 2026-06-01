@@ -1,6 +1,4 @@
 #include "Section4.hpp"
-
-
 Product::Product(int id_, std::string name_,double weight_, double temperature_, double voltage_, bool visual_defect_)
     : id(id_), name(std::string(name_)), weight(weight_),temperature(temperature_), voltage(voltage_),visual_defect(visual_defect_) {}
 
@@ -36,9 +34,7 @@ void Inspection::printReport() const {
 bool Inspection::lastPassed() const { return last_result; }
 
 double Inspection::successRate() const {
-    return total_performed == 0
-        ? 0.0
-        : (100.0 * total_passed / total_performed);
+    return total_performed == 0? 0.0: (100.0 * total_passed / total_performed);
 }
 
 WeightInspection::WeightInspection(double optimal_, double tolerance_)
@@ -91,8 +87,5 @@ void runPipeline(Product& p, std::vector<Inspection*>& inspections) {
         ins->printReport();
         allPass = allPass && ok;
     }
-
-    std::cout << "Final Result: "
-              << (allPass ? "ACCEPTED" : "REJECTED")
-              << "\n\n";
+    std::cout << "Final Result: "<< (allPass ? "ACCEPTED" : "REJECTED")<< "\n\n";
 }

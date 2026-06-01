@@ -26,7 +26,7 @@ public:
     double get_steering_angle() const;
     double get_lane_offset() const;
 
-    std::string &get_model();
+    std::string &get_model() const;
 
     bool is_brake_light_on() const;
 

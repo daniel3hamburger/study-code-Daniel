@@ -1,12 +1,10 @@
 #include "bugHunt_assistance_system.hpp"
 
-DistanceSensor::DistanceSensor(const std::string &sensor_position,
-                               double initial_distance_m)
+DistanceSensor::DistanceSensor(const std::string &sensor_position,double initial_distance_m)
     : position(sensor_position),
       active(true),
       measured_distance_m(initial_distance_m)
-{
-}
+{}
 
 void DistanceSensor::set_distance(double distance_m)
 {
@@ -40,7 +38,7 @@ std::string DistanceSensor::get_position() const
 
 bool DistanceSensor::operator<(const DistanceSensor &other) const
 {
-    return measured_distance_m > other.measured_distance_m;
+    return measured_distance_m < other.measured_distance_m; // on the false direction
 }
 
 bool DistanceSensor::is_exactly_at_warning_distance(double warning_distance) const
@@ -68,7 +66,7 @@ void EmergencyBrakeSystem::evaluate(Vehicle &vehicle,
         return;
     }
 
-    if (front_sensor.get_distance() > critical_distance_m)
+    if (front_sensor.get_distance() < critical_distance_m) // false statment >
     {
         std::cout << "[EmergencyBrakeSystem] Emergency braking triggered.\n";
         vehicle.brake(30.0);
@@ -86,15 +84,15 @@ void LaneKeepingAssist::evaluate(Vehicle &vehicle) const
 {
     double offset = vehicle.get_lane_offset();
 
-    if (offset > max_allowed_offset_m)
-    {
-        std::cout << "[LaneKeepingAssist] Correcting to the left.\n";
-        vehicle.steer(-correction_angle);
-    }
-    else if (offset < -max_allowed_offset_m)
+    if (offset > max_allowed_offset_m) //false if Statements
     {
         std::cout << "[LaneKeepingAssist] Correcting to the right.\n";
         vehicle.steer(correction_angle);
+    }
+    else if (offset < -max_allowed_offset_m)
+    {
+        std::cout << "[LaneKeepingAssist] Correcting to the left.\n";
+        vehicle.steer(-correction_angle);
     }
     else
     {
@@ -119,8 +117,8 @@ void AdaptiveCruiseControl::evaluate(Vehicle &vehicle,
 
     if (front_sensor.get_distance() < minimum_distance_m)
     {
-        std::cout << "[AdaptiveCruiseControl] Vehicle ahead is close. Accelerating.\n";
-        vehicle.accelerate(5.0);
+        std::cout << "[AdaptiveCruiseControl] Vehicle ahead is close. Braking.\n";
+        vehicle.brake(5.0);
     }
     else if (vehicle.get_speed() < target_speed_kmh)
     {
