@@ -11,9 +11,8 @@ Vehicle::Vehicle(const std::string &vehicle_model)
 
 void Vehicle::accelerate(double amount_kmh)
 {
-    if (amount_kmh < 0.0) // it never starts in the start 
+    if (amount_kmh <= 0.0) 
     {
-        std::cerr << "Error: " << e.what() << std::endl;
         return;
     }
 
@@ -34,7 +33,7 @@ void Vehicle::brake(double amount_kmh)
 
     if (speed_kmh < 0.0)
     {
-        speed_kmh = amount_kmh;
+        speed_kmh = 0.0; // speed is no correct
     }
 }
 
@@ -63,7 +62,7 @@ double Vehicle::get_lane_offset() const
     return lane_offset_m;
 }
 
-std::string &Vehicle::get_model()
+std::string Vehicle::get_model() const
 {
     return model;
 }

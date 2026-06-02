@@ -72,7 +72,7 @@ void FootballManager::prepare_player(Player &player, const std::string &strategy
     notify_player(player, "Training preparation completed.");
 }
 
-void FootballManager::train_player(Player &player, int intensity)
+void FootballManager::train_player(Player &player, int intensity) 
 {
     player.train(intensity);
 }
@@ -88,7 +88,7 @@ void FootballManager::notify_player(const Player &player, const std::string &mes
 }
 
 void FootballManager::select_strategy(const std::string &strategy)
-{
+{   //open Close prinzip
     if (strategy == "offensive")
     {
         std::cout << "Strategy: offensive pressing.\n";

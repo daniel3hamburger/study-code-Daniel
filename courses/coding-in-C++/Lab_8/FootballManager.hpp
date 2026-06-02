@@ -24,12 +24,12 @@ class InjuredPlayer : public Player
 public:
     InjuredPlayer(const std::string &name, int age);
 
-    void train(int intensity) override;
-};
+    void train(int intensity) override;// LSP
+}; 
 
 class ClubService
 {
-public:
+public: //single Responsibility 
     virtual ~ClubService() = default;
 
     virtual void train_player(Player &player, int intensity) = 0;
@@ -52,18 +52,18 @@ public:
 class FootballManager : public ClubService
 {
 private:
-    void select_strategy(const std::string &strategy);
+    void select_strategy(const std::string &strategy); //coding conventions
 
     FilePlayerRepository repository;
     EmailNotifier notifier;
 
-public:
+public: //single responsibility
     FootballManager() = default;
 
     void prepare_player(Player &player, const std::string &strategy);
 
     void train_player(Player &player, int intensity) override;
-    void save_player(const Player &player) override;
+    void save_player(const Player &player) override; //interface segregation
     void notify_player(const Player &player, const std::string &message) override;
 };
 

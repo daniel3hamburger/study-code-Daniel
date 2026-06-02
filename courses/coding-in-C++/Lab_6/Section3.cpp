@@ -3,7 +3,6 @@
 #include <memory>
 #include <algorithm>
 
-
 class Device {
 private:
     std::string name;

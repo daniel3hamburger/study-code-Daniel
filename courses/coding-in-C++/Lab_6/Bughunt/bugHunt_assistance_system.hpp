@@ -7,7 +7,7 @@
 #include <memory>
 
 #include "bugHunt_vehicle.hpp"
-
+class AdaptiveCruiseControl;
 class DistanceSensor
 {
 private:
@@ -28,13 +28,23 @@ public:
     bool is_active() const;
     std::string get_position() const;
 
-    bool operator<(const DistanceSensor &other) const;
+    bool operator<(const std::shared_ptr<DistanceSensor> other) const;
     bool is_exactly_at_warning_distance(double warning_distance) const;
 
     void print_info() const;
 };
 
-class EmergencyBrakeSystem
+class AssistanceFeature{
+    protected:
+    std::vector<std::unique_ptr<AssistanceFeature>> container;
+    public:
+    virtual void evaluate(std::shared_ptr<Vehicle> vehicle, const std::shared_ptr<DistanceSensor> front_sensor)=0;
+    void print_name();
+    virtual ~AssistanceFeature();
+    void addcontainer();
+};
+
+class EmergencyBrakeSystem: public AssistanceFeature
 {
 private:
     double critical_distance_m;
@@ -42,10 +52,10 @@ private:
 public:
     EmergencyBrakeSystem(double critical_distance);
 
-    void evaluate(Vehicle &vehicle, const DistanceSensor &front_sensor) const;
+    void evaluate(std::shared_ptr<Vehicle> vehicle, const std::shared_ptr<DistanceSensor> front_sensor) override;
 };
 
-class LaneKeepingAssist
+class LaneKeepingAssist: public AssistanceFeature
 {
 private:
     double max_allowed_offset_m;
@@ -54,34 +64,35 @@ private:
 public:
     LaneKeepingAssist(double max_offset, double correction);
 
-    void evaluate(Vehicle &vehicle) const;
+    void evaluate(std::shared_ptr<Vehicle> vehicle, const std::shared_ptr<DistanceSensor> front_sensor) override;
 };
 
-class AdaptiveCruiseControl
+class AdaptiveCruiseControl : public AssistanceFeature
 {
-private:
+protected:
     double target_speed_kmh;
     double minimum_distance_m;
+    friend class EmergencyBrakeSystem;
 
 public:
     AdaptiveCruiseControl(double target_speed,
                           double minimum_distance);
 
-    void evaluate(Vehicle &vehicle,
-                  const DistanceSensor &front_sensor) const;
+    void evaluate(std::shared_ptr<Vehicle> vehicle, const std::shared_ptr<DistanceSensor> front_sensor)override;
 };
 
 class ParkingAssistant
 {
 private:
-    std::vector<DistanceSensor *> sensors;
+    std::vector<std::shared_ptr<DistanceSensor>> sensors;
     double warning_distance_m;
 
 public:
     ParkingAssistant(double warning_distance);
 
-    void add_sensor(DistanceSensor *sensor);
+    void add_sensor(std::shared_ptr<DistanceSensor> sensor);
     void print_warnings() const;
 };
+
 
 #endif
