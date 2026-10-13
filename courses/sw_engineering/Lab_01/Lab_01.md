@@ -181,41 +181,82 @@ Complete the following table.
 | Explicit focus on risk analysis? | | | | |
 | Well suited to changing requirements? | | | | |
 
-## 🟢 Section II: Agile Principles
+## 🟡 Section II: The Marshmallow Tower Challenge
 
-### Task Description
+### Objective
 
-The Agile Manifesto contains twelve principles that describe important ideas for agile software development.
-In this exercise, you will first reflect on these principles individually and then discuss them in a small team.
+Build the **tallest possible free-standing tower** using only the materials provided.
+The marshmallow must be placed at the very top of the tower.
 
-#### 1. Individual Preparation
+### Team Setup
 
-* Read the twelve principles of the Agile Manifesto by yourself
-* Select the two principles that are most important from your point of view
-* Write down a short explanation for each selected principle
-* Be prepared to explain why these two principles matter to you
+* Team size: 3-4 participants
+* Total building time: 18 minutes, divided into two sprints
 
-#### 2. Group Discussion
+### Materials
 
-Gather in a group of three people.
+Each team receives:
 
-In your group:
+* 20 uncooked spaghetti sticks
+* 1 meter of masking tape
+* 1 meter of string
+* 1 marshmallow
+* 1 pair of scissors
 
-* Each person explains which two principles they selected and why they selected them
-* Discuss similarities and differences between your choices
-* Decide together which one principle is the most important one for your team
+### Rules
 
-#### 3. Short Presentation
+1. The tower must stand on its own without any external support.
+2. The entire marshmallow must be placed at the top of the tower.
+3. You may break the spaghetti and cut the tape and string as needed.
+4. You may not use any additional materials.
+5. The tower must remain standing without anyone touching or supporting it when time runs out.
+6. The height is measured from the table surface to the top of the marshmallow.
 
-Choose one person from your group to briefly present your result.
+### Challenge Schedule
 
-The presentation should explain:
+#### 1. Sprint 1: Build
 
-* Which principle your team selected
-* Why your team selected this particular principle
-* How this principle could influence the way a software team works
+Time: 8 minutes
 
-No need to prepare slides for this presentation. A short oral explanation is sufficient.
+Work together to design, build, and test your tower.
+
+#### 2. Retrospective
+
+Time: 3 minutes
+
+Pause your work and discuss the following questions with your team.
+
+* What went well during the first sprint?
+* What problems did you encounter?
+* What will you do differently in the second sprint?
+
+Agree on at least one concrete improvement for the next sprint.
+
+#### 3. Sprint 2: Improve
+
+Time: 7 minutes
+
+Improve your tower and ensure that it can support the marshmallow.
+
+#### 4. Final Evaluation
+
+Time: 5 minutes
+
+Stop building and step away from your tower.
+Each tower will be measured.
+The team with the tallest free-standing tower wins.
+
+### Final Reflection
+
+Time: 10 minutes
+
+Discuss your experiences with the other teams:
+
+* How did your team approach the challenge?
+* Did you build and test early, or spend most of your time planning?
+* How did the intermediate review and retrospective influence your approach?
+* What did you learn about teamwork, prototyping, feedback, and iterative development?
+* How can these lessons be applied to agile software development?
 
 ## 🟡 Section III: Scrum Paper Airplane Game
 
